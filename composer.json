@@ -1,0 +1,17 @@
+{
+    "name": "erick/api_orcamento_user_storage",
+    "autoload": {
+        "psr-4": {
+            "Erick\\ApiOrcamentoUserStorage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ericksax",
+            "email": "erickfreitas@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
