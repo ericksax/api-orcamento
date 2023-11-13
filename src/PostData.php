@@ -1,7 +1,7 @@
 <?php   
-    require '../vendor/autoload.php';
-    require 'connection.php';
-    
+
+    require 'Connection.php';
+
     class PostData extends Connection {
        private $user_id;
         public function __construct() {
@@ -37,8 +37,9 @@
         }
         
         private function insertNewUser($userData) {
-            $sql_insert_user = "INSERT INTO usuario_orc (solicitante_nome, email, cnpj, orgao_nome, telefone) VALUES (:solicitante_nome, :email, :cnpj, :orgao_nome, :telefone)";
+            $sql_insert_user = "INSERT INTO usuario_orc (aceite, solicitante_nome, email, cnpj, orgao_nome, telefone) VALUES (:aceite, :solicitante_nome, :email, :cnpj, :orgao_nome, :telefone)";
             $stmt_user = $this->con->prepare($sql_insert_user);
+            $stmt_user->bindParam(':aceite', $userData['aceite']);
             $stmt_user->bindParam(':solicitante_nome', $userData['solicitante_nome']);
             $stmt_user->bindParam(':email', $userData["email"]);
             $stmt_user->bindParam(':cnpj', $userData['cnpj']);
